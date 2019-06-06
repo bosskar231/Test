@@ -19,8 +19,7 @@ public class ReArrange {
             System.out.println("Enter the String ");
             String input=scanner.nextLine();
             input=input.toLowerCase();
-            String so="";
-            System.out.println("input is "+input);
+            System.out.println("Input String is "+input);
             ArrayList<Character> input1=new ArrayList<>();
 
             for(int i=1;i<input.length();i++)
@@ -29,7 +28,7 @@ public class ReArrange {
 
                 input1.add(input.charAt(i)) ;
             }
-            System.out.println(" ArrayList "+input1);
+            //System.out.println(" ArrayList "+input1);
             Stack<Character> stack=new Stack<>();
             int impossible=0;
             if(input.length()>0)
@@ -46,17 +45,24 @@ public class ReArrange {
                     {
                         stack.push(insert);
                     }
-                    System.out.println("stack "+stack);
-                    System.out.println("ArrayList "+input1);
+                   // System.out.println("stack "+stack);
+                  //  System.out.println("ArrayList "+input1);
 
                 }
             }
             if(impossible==1)
             {
-                System.out.println(0);
+                System.out.println("It is impossible to rearrange the string without repeating adjacent characters");
             }else
             {
-                System.out.println(1);
+                System.out.println("It is posssible to rearrange the string ");
+
+                StringBuffer print=new StringBuffer();
+                while(stack.size()>0)
+                {
+                    print.append(stack.pop());
+                }
+                System.out.println("The rearranged String is: "+print.reverse().toString());
             }
 
 
